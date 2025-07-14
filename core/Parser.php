@@ -89,6 +89,10 @@ class Parser
         }
 
         $fn = array_shift($elements);
+
+        if ($fn->type === TokenType::NIL)
+            return $fn;
+
         return $this->builtins->call($fn, $elements);
     }
 }
