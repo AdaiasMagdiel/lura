@@ -1,6 +1,6 @@
 # Lura
 
-Lura is a lightweight, Lisp-inspired programming language named as an anagram of "Raul," in tribute to the legendary Brazilian singer [Raul Seixas](https://en.wikipedia.org/wiki/Raul_Seixas) ([Spotify](https://open.spotify.com/intl-pt/artist/7jrRQZg4FZq6dwpi3baKcu)). While Lura adopts a Lisp-like syntax with parentheses, it is not a full Lisp dialect, focusing instead on simplicity and a minimalistic design for educational and experimental purposes.
+Lura is a lightweight, Lisp-inspired programming language named as an anagram of "Raul", in tribute to the legendary Brazilian singer [Raul Seixas](https://en.wikipedia.org/wiki/Raul_Seixas) ([Spotify](https://open.spotify.com/intl-pt/artist/7jrRQZg4FZq6dwpi3baKcu)). While Lura adopts a Lisp-like syntax with parentheses, it is not a full Lisp dialect, focusing instead on simplicity and a minimalistic design for educational and experimental purposes.
 
 ## Features
 
