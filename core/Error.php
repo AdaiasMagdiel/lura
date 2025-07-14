@@ -18,14 +18,16 @@ class Error
 		$this->lines = explode("\n", $program);
 	}
 
-	private function formatErrorInfo(
-		int $spacesTotal,
-		int $col,
-		int $tail,
-	): string {
-		$spaces = str_repeat(" ", $spacesTotal);
-		$indicator = str_repeat(" ", ($col - 1)) . "^";
-		$tail = $tail > 0 ? str_repeat("^", $tail - 1) : '';
+	private function formatErrorInfo(int $spacesTotal, int $col, int $tail): string
+	{
+		$col = max(1, $col);
+		$tail = max(0, $tail);
+		$spacesTotal = max(0, $spacesTotal);
+
+		$maxLength = 1000;
+		$spaces = str_repeat(" ", min($spacesTotal, $maxLength));
+		$indicator = str_repeat(" ", min($col - 1, $maxLength)) . "^";
+		$tail = $tail > 0 ? str_repeat("^", min($tail - 1, $maxLength)) : '';
 
 		return Color::RED($spaces . $indicator . $tail);
 	}
