@@ -177,9 +177,9 @@ class Lexer
 
 		$value = implode('', $chars);
 		if ($type === TokenType::INT) {
-			return new Token($type, (int) $value, $loc);
+			return new Token($type, intval($value), $loc);
 		} else {
-			return new Token($type, (float) $value, $loc);
+			return new Token($type, floatval($value), $loc);
 		}
 	}
 
@@ -317,8 +317,8 @@ class Lexer
 
 			// PARENS
 			else if ($ch === "(") {
-				$this->makeUnaryToken($tokens, TokenType::L_PAREN);
 				$lists[] = $this->getLoc();
+				$this->makeUnaryToken($tokens, TokenType::L_PAREN);
 			} else if ($ch === ")") {
 				$this->makeUnaryToken($tokens, TokenType::R_PAREN);
 				array_pop($lists);
@@ -357,6 +357,7 @@ class Lexer
 					$this->getLoc(),
 					"Unexpected character '{$ch}' - invalid syntax"
 				);
+				return [new Token(TokenType::EOF, null, $this->getLoc())];
 			}
 		}
 
@@ -372,7 +373,10 @@ class Lexer
 		}
 
 		if (!empty($lists)) {
-			$this->error->SyntaxError($lists[0], "Unclosed expression, maybe you forgot to close parentheses?");
+			$this->error->SyntaxError(
+				$lists[0],
+				"Unclosed expression, maybe you forgot to close parentheses?"
+			);
 			return [new Token(TokenType::EOF, null, $this->getLoc())];
 		}
 
