@@ -1,0 +1,24 @@
+{
+    "name": "adaiasmagdiel/lura",
+    "description": "A new language",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "AdaiasMagdiel\\Lura\\": "core/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Adaías Magdiel",
+            "email": "adaiasmagdiell@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "pestphp/pest": "^3.8"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}
