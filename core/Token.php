@@ -9,7 +9,7 @@ class Token
 {
 	public function __construct(
 		public TokenType $type,
-		public string|null $value,
+		public mixed $value,
 		public Loc $loc
 	) {}
 }
